@@ -452,9 +452,9 @@ class Tap
       end
 
       error_message = +"The installation of the #{full_name} was requested but #{owner}\n"
-      error_message << "has not allowed this tap in `HOMEBREW_ALLOWED_TAPS`" unless tap.allowed_by_env?
-      error_message << " and\n" if !tap.allowed_by_env? && tap.forbidden_by_env?
-      error_message << "has forbidden this tap in `HOMEBREW_FORBIDDEN_TAPS`" if tap.forbidden_by_env?
+      error_message << "has not allowed this tap in `HOMEBREW_ALLOWED_TAPS`" unless allowed_by_env?
+      error_message << " and\n" if !allowed_by_env? && forbidden_by_env?
+      error_message << "has forbidden this tap in `HOMEBREW_FORBIDDEN_TAPS`" if forbidden_by_env?
       error_message << ".#{owner_contact}"
 
       odie error_message
