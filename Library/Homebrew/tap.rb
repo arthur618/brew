@@ -445,7 +445,7 @@ class Tap
       raise TapAlreadyTappedError, name unless shallow?
     end
 
-    if !tap.allowed_by_env? || tap.forbidden_by_env?
+    if !allowed_by_env? || forbidden_by_env?
       owner = Homebrew::EnvConfig.forbidden_owner
       owner_contact = if (contact = Homebrew::EnvConfig.forbidden_owner_contact.presence)
         "\n#{contact}"
